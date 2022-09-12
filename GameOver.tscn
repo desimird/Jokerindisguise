@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Screenshot_4.png" type="Texture" id=2]
+[ext_resource path="res://GameOver.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 1 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 304, 314 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 214.0
+margin_top = 497.0
+margin_right = 382.0
+margin_bottom = 538.0
+theme = SubResource( 2 )
+text = "TRY AGAIN"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
